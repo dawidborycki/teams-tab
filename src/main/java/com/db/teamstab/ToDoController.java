@@ -21,7 +21,7 @@ public class ToDoController {
     }
 
     @GetMapping("/{id}")
-    public ModelAndView getTodoById(@RequestParam(value = "id", required = true) Integer id) {
+    public ModelAndView getToDoById(@RequestParam(value = "id", required = true) Integer id) {
         String url = "https://jsonplaceholder.typicode.com/todos/{id}";
         ToDo todo = this.restTemplate.getForObject(url, ToDo.class, id);
 
@@ -29,7 +29,6 @@ public class ToDoController {
         modelAndView.addObject("todo", todo);
 
         return modelAndView;
-//        return "todoDetails";
     }
 
 }
